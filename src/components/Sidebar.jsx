@@ -105,7 +105,7 @@ const Sidebar = ({ children }) => {
                 <div className='top_section'>
                     {isOpen && <img src={logo} alt="logo" id='img' />}
                     <div className="bars">
-                        {isOpen ? <FaAngleDoubleLeft onClick={toggle} /> : <FaAnglesRight onClick={toggle} />}
+                        {isOpen ? <FaAngleDoubleLeft onClick={toggle}  /> : <FaAnglesRight onClick={toggle}/>}
                     </div>
                 </div>
                 <hr />
