@@ -3,7 +3,8 @@ import Navbar from '../components/Navbar'
 
 import '../stylesPages/ListManagement.css'
 import { FaSearch } from 'react-icons/fa'
-import ModalForm from '../components/ModalForm'
+import ModalForm from '../components/modalform/ModalForm'
+
 
 
 const ListManagement = () => {
@@ -26,7 +27,7 @@ const ListManagement = () => {
             <i><FaSearch /></i>
           </div>
       </div>
-      {openModal && <ModalForm closeModal={setOpenModal}/>}
+      {openModal && <ModalForm  closeModal={setOpenModal}/>}
     </>
   )
 }

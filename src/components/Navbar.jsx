@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { FaAngleDoubleLeft, FaUser } from 'react-icons/fa'
+import {  FaUser } from 'react-icons/fa'
  import { motion } from 'framer-motion'
-import { FaAnglesRight } from 'react-icons/fa6';
+
 
 const Navbar = () => {
 

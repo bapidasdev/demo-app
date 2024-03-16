@@ -1,5 +1,8 @@
 .list_main_container{
     margin-top: 25px;
+    position: relative;
+    z-index: 0;
+
     
 }
 

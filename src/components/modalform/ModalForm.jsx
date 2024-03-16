@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
-import '../stylesPages/ModalForm.css'
-import { IoMdCloudUpload } from "react-icons/io";
-import { MdDelete, MdDeleteSweep } from "react-icons/md";
-import { FaFile, FaUser } from "react-icons/fa";
+import './ModalForm.css'
+import {  MdDeleteSweep } from "react-icons/md";
 import { Autocomplete, IconButton, TextField, Tooltip } from '@mui/material';
 
-import Editor from '../components/Editor'
-import Drag_Drop from './Drag__Drop';
+import Editor from '../editor/Editor';
+import Drag_Drop from '../drag_drop/Drag__Drop';
+import ModalNewForm from '../newmodalform/ModalNewForm';
 
 const category = [
   { label: 'Door Handle (test)' },
@@ -28,9 +27,9 @@ const size = [
 ]
 
 const ModalForm = ({ closeModal }) => {
-
+  const [openNewModal, setOpenNewModal] = useState(false)
   return (
-    <>
+    <div style={{ overflowY: "scroll" }}>
       <div className="modal_bg" style={{ overflowY: "scroll" }}>
         <form>
           <div className="input_name">
@@ -126,11 +125,6 @@ const ModalForm = ({ closeModal }) => {
             <input type="number" name='ProductPrice' placeholder='Reward Point' className='reward_input' />
           </div>
 
-
-
-
-
-          
           <div className="dec_editor">
              <label>
                Description: 
@@ -144,16 +138,12 @@ const ModalForm = ({ closeModal }) => {
           </div>
 
 
-          <div>
+          <div className='newModalOpen'>
             <span>Product variants:</span>
-            <button type='button'>ADD variant</button>
+            <button type='button' onClick={()=> {setOpenNewModal(true)}} className='newModalOpenBtn'>ADD variant</button>
+            {openNewModal && <ModalNewForm  closeNewModal={setOpenNewModal}/>}
           </div>
-
-          <div>
-            <button>save</button>
-            <button>Delete</button>
-          </div>
-
+          <button className='savebtn'>Save</button>
         </form>
       </div>
 
@@ -164,8 +154,7 @@ const ModalForm = ({ closeModal }) => {
           </IconButton>
         </Tooltip>
       </div>
-      <button onClick={() => closeModal(false)} id='cancelBtn'>Cancel</button>
-    </>
+    </div>
   )
 }
 

@@ -1,28 +1,40 @@
 .modal_bg {
     width: 100%;
     height: max-content;
-    background-color: rgba(200, 200, 200);
-    position: fixed;
+    background-color:whitesmoke;
+    border-radius: 20px;
+    position: absolute;
+    top: 7%;
+    left: 15%;
+    height: 90%;
+    width: 80%;
     display: flex;
     align-items: center;
     padding: 10px;
     margin-top: 20px;
-    
+    z-index: 100;
+    scroll-snap-type: none;
+
 }
 
 form {
     margin-top: 30px;
     margin-left: 10%;
+    height: 100vh;
+    padding: 40px;
+    padding-bottom: 40px;
 }
 
 
- span{
-   margin-right: 15px;
+span {
+    margin-right: 15px;
     font-weight: 500;
     font-size: 20px;
 }
 
- .name_input, .mrp_input, .reward_input {
+.name_input,
+.mrp_input,
+.reward_input {
     width: 90%;
     height: 50px;
     background-color: #fff;
@@ -45,44 +57,48 @@ form {
     width: 83%;
 }
 
-.name_input input{
+.name_input input {
     width: 50%;
 }
 
-.category__brand{
+.category__brand {
     display: flex;
     align-items: center;
     margin-top: 30px;
 }
-.colour__size{
+
+.colour__size {
     display: flex;
     align-items: center;
     margin-top: 30px;
     margin-left: 10px;
 }
-.measure__mrp{
+
+.measure__mrp {
     display: flex;
     align-items: center;
     margin-top: 30px;
 }
-.Reward_Poin_input{
+
+.Reward_Poin_input {
     margin-top: 30px;
     margin-left: 5px;
 }
 
 
- .cencel_btn{
+.cencel_btn {
     position: absolute;
-    left: 90%;
-    top: 35%;
+    left: 87%;
+    top: 20%;
     background-color: red;
     padding: 10px;
     border-radius: 50%;
     color: white;
     text-align: center;
- }
+    z-index: 100;
+}
 
- .cencel_btn button{
+.cencel_btn button {
     background-color: red;
     color: white;
     padding: 10px;
@@ -90,10 +106,10 @@ form {
     border-radius: 50%;
     border: none;
     cursor: pointer;
- }
+}
 
 
- .drag_drop {
+.drag_drop {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -103,9 +119,9 @@ form {
     width: 400px;
     cursor: pointer;
     border-radius: 5px;
- }
+}
 
- .uploaded{
+.uploaded {
     margin: 10px;
     display: flex;
     justify-content: space-between;
@@ -113,13 +129,40 @@ form {
     padding: 15px 20px;
     border-radius: 5px;
     background-color: #e9f0ff;
- }
+}
 
- .upload_span{
+.upload_span {
     display: flex;
     align-items: center;
- }
+}
 
- .gallery{
+.gallery {
     margin-top: 10px;
- }
+}
+
+.newModalOpen{
+    padding: 20px;
+}
+
+.newModalOpenBtn{
+    background: rgb(144, 155, 237);
+    color: white;
+    padding: 15px;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.savebtn{
+    background: rgb(144, 155, 237);
+    color: white;
+    width: 77%;
+    padding: 15px;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    margin-top: 15px;
+    cursor: pointer;
+}
