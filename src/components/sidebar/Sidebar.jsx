@@ -12,9 +12,8 @@ import { CgLogIn } from "react-icons/cg";
 import { FaAngleDoubleLeft } from "react-icons/fa";
 
 import { NavLink } from 'react-router-dom'
-
-
-import logo from '../assets/logo2.png'
+import './Sidebar.css'
+import logo from '../../assets/logo2.png'
 
 
 const routes = [

@@ -10,7 +10,11 @@ import RuleSet from './pages/RuleSet.jsx'
 import RuleSetGroup from './pages/RuleSetGroup.jsx'
 import Settings from './pages/Settings.jsx'
 import CaseManagement from './pages/CaseManagement.jsx'
-import Sidebar from './components/Sidebar.jsx';
+
+
+import Sidebar from './components/sidebar/Sidebar.jsx';
+
+
 
 function App() {
   return (

@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import Navbar from '../components/Navbar'
+import Navbar from '../components/navbar/Navbar'
 
 import '../stylesPages/ListManagement.css'
 import { FaSearch } from 'react-icons/fa'

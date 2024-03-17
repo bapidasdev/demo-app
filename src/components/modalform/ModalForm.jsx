@@ -61,7 +61,7 @@ const ModalForm = ({ closeModal }) => {
                 disablePortal
                 id="combo-box-demo"
                 options={brand}
-                sx={{ width: 270 }}
+                sx={{ width: 260 }}
                 renderInput={(params) => <TextField {...params} label="Brand" />}
               />
             </div>
@@ -92,7 +92,7 @@ const ModalForm = ({ closeModal }) => {
                 disablePortal
                 id="combo-box-demo"
                 options={size}
-                sx={{ width: 290 }}
+                sx={{ width: 270 }}
                 renderInput={(params) => <TextField {...params} label="Size" />}
               />
             </div>

@@ -2,6 +2,7 @@
     margin-top: 25px;
     position: relative;
     z-index: 0;
+    
 
     
 }
@@ -9,11 +10,19 @@
 .list_header{
     display: flex;
     align-items: center;
-    height: 50px;
+    justify-content: space-between;
+    height: 60px;
     background-color: white;
     width: 100%;
-    justify-content: space-between;
     padding: 5px;
+}
+
+@media screen and (max-width:1438px) {
+
+    .list_header{
+        
+    }
+    
 }
 
 .list_header h1{
