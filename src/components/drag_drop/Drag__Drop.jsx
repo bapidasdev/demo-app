@@ -4,14 +4,16 @@ import { FaFile } from 'react-icons/fa'
 import { IoMdCloudUpload } from 'react-icons/io'
 import { MdDelete } from 'react-icons/md'
 
+import './Drag_Drop.css'
+
 const Drag_Drop = () => {
   const [img, setImg] = useState(null)
   const [fileName, setFileName] = useState("No selected file")
 
   return (
-    <div>
+    <div style={{ display: 'flex' }}>
       <div className='drag_drop image' onClick={() => document.querySelector(".image_input").click()}>
-        <span>Product image:</span>
+        <span >Product image:</span>
         <input type="file" accept='image/*' className='input_file image_input' hidden
           onChange={({ target: { files } }) => {
             files[0] && setFileName(files[0].name)
@@ -20,46 +22,31 @@ const Drag_Drop = () => {
             }
           }}
         />
-        {img ? <img src={img} width={150} height={100} alt='fileName' /> : < IoMdCloudUpload color='rgb(144, 155, 237)' size={60} />}
+        <div style={{ display: 'flex' }}>
+          <div style={{ flex: '2', }}>
+            {img ? <img src={img} width={250} height={150} alt='fileName' /> : < IoMdCloudUpload color='rgb(144, 155, 237)' size={60} />}
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'flex-end', }}>
+          </div>
+        </div>
+        {/* < IoMdCloudUpload color='rgb(144, 155, 237)' size={60} /> */}
         <p>Browse  Files to upload</p>
       </div>
-
-      <section className='uploaded'>
-        <FaFile color='rgb(144, 155, 237)' size={20} />
+      {img && <div className='delete_div'>
         <span className='upload_span'>
-          {fileName} -
-          <MdDelete onClick={() => {
+          <MdDelete className='delete' onClick={() => {
             setImg(null)
             setFileName("No sellected file")
-
           }} />
         </span>
-      </section>
+      </div>}
 
-      <div className='drag_drop gallery' onClick={() => document.querySelector(".gallery_input").click()}>
-        <span>Product Gallery Images:</span>
-        <input type="file" accept='image/*' className='input_file gallery_input' hidden 
-        onChange={({ target: { files } }) => {
-          files[0] && setFileName(files[0].name)
-          if (files) {
-            setImg(URL.createObjectURL(files[0]))
-          }
-        }}
-        />
-        {img ? <img src={img} width={60} height={60} alt='fileName' /> : < IoMdCloudUpload color='rgb(144, 155, 237)' size={60} />}
-        <p>Browse  Files to upload</p>
-      </div>
+      
 
-      <section className='uploaded'>
-        <FaFile color='rgb(144, 155, 237)' size={20} />
-        <span className='upload_span'>
-          {fileName} -
-          <MdDelete onClick={() => {
-            setFileName("No sellected file")
-            setImg(null)
-          }} />
-        </span>
-      </section>
+
+      
+
+      
     </div>
   )
 }

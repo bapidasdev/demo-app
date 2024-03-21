@@ -3,13 +3,12 @@ import Navbar from '../components/navbar/Navbar'
 
 import '../stylesPages/ListManagement.css'
 import { FaSearch } from 'react-icons/fa'
-import ModalForm from '../components/modalform/ModalForm'
+import SubCategoryModal from '../AllModalForm/SubCategoryModal/SubCategoryModal'
 
 
+const SubCategory = () => {
 
-const ListManagement = () => {
-
-  const [openModal, setOpenModal] = useState(false)
+const [opneSubCategoryModal, setOpenSubCategoryModal] =useState(false)
 
   return (
     <>
@@ -18,8 +17,8 @@ const ListManagement = () => {
       </div>
       <div className='list_main_container'>
         <div className='list_header'>
-          <h1>List Search</h1>
-          <button className='btn' onClick={()=> {setOpenModal(true)}}> + ADD LIST</button>
+          <h1>SubCategory</h1>
+          <button className='btn' onClick={()=>{setOpenSubCategoryModal(true)}}> + ADD LIST</button>
         </div>
         
           <div className='input_container'>
@@ -27,9 +26,9 @@ const ListManagement = () => {
             <i><FaSearch /></i>
           </div>
       </div>
-      {openModal && <ModalForm  closeModal={setOpenModal}/>}
+      {opneSubCategoryModal && <SubCategoryModal closeSubCategoryModal={setOpenSubCategoryModal}/>}
     </>
   )
 }
 
-export default ListManagement
+export default SubCategory

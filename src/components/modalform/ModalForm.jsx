@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import './ModalForm.css'
-import {  MdDeleteSweep } from "react-icons/md";
+import { MdDeleteSweep } from "react-icons/md";
 import { Autocomplete, IconButton, TextField, Tooltip } from '@mui/material';
 
 import Editor from '../editor/Editor';
 import Drag_Drop from '../drag_drop/Drag__Drop';
-import ModalNewForm from '../newmodalform/ModalNewForm';
+import Drag__Drop2 from '../drag_drop/Drag__Drop2';
+// import ModalNewForm from '../newmodalform/ModalNewForm';
+
+import { MdDelete } from "react-icons/md";
 
 const category = [
   { label: 'Door Handle (test)' },
@@ -28,6 +31,30 @@ const size = [
 
 const ModalForm = ({ closeModal }) => {
   const [openNewModal, setOpenNewModal] = useState(false)
+
+  //_______________________________________new changer________________+*********************************************************-------------------
+  const [productVariants, setProductVariants] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const handleAddVariant = (e) => {
+    e.preventDefault();
+    setProductVariants([...productVariants, { colour: '', size: '', uom: '', price: '', packingUnit: '', rewardPoint: '' }])
+  }
+
+  const handleVariantChange = (value, key, index) => {
+    let tempProductVariants = [...productVariants];
+    tempProductVariants[index][key] = value;
+    setProductVariants(tempProductVariants);
+  }
+
+  const handleDeleteVariant = (index) => {
+    let tempProductVariants = [...productVariants];
+    tempProductVariants = tempProductVariants.filter((variant, i) => {
+      return i != index;
+    });
+    setProductVariants(tempProductVariants);
+  }
+  // _________________________________________________new chamge______+*********************************************************-------------------
   return (
     <div style={{ overflowY: "scroll" }}>
       <div className="modal_bg" style={{ overflowY: "scroll" }}>
@@ -126,24 +153,96 @@ const ModalForm = ({ closeModal }) => {
           </div>
 
           <div className="dec_editor">
-             <label>
-               Description: 
-             </label>
+            
             <Editor />
-           </div> 
+          </div>
 
 
-          <div className="drag_drop_container">
+          <div style={{marginTop:'20px'}} className="drag_drop_container">
             <Drag_Drop />
           </div>
 
+          <div className="drag_drop_container">
+            <Drag__Drop2 />
+          </div>
+
+
+
 
           <div className='newModalOpen'>
-            <span>Product variants:</span>
-            <button type='button' onClick={()=> {setOpenNewModal(true)}} className='newModalOpenBtn'>ADD variant</button>
-            {openNewModal && <ModalNewForm  closeNewModal={setOpenNewModal}/>}
+            {/* <span>Product variants:</span>
+            <button type='button' onClick={() => { setOpenNewModal(true) }} className='newModalOpenBtn'>ADD variant</button>
+            {openNewModal && <ModalNewForm closeNewModal={setOpenNewModal} />} */}
+
+
+            {/* _______________________________________________________+*********new change************************************************------------------- */}
+            <button
+              type="button"
+              disabled={loading}
+              onClick={(e) => handleAddVariant(e)}
+              className='newModalOpenBtn'
+            >Add variant</button>
+
+            {productVariants?.map((variant, index) => {
+
+              return (
+                <div key={index} className='addInput'
+                // className='addInput' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '10px',  }}
+                >
+                  <div style={{ display: 'flex', alignItems:'center',justifyContent:'center' }}>
+                    <div className='input_div'>
+                      <div className='addInputBox'>
+                        <span>Colour:</span>
+                        <input type='text' name='colour' placeholder='Colour'
+                          value={productVariants[index].colour} onChange={(e) => { handleVariantChange(e.target.value, 'colour', index) }} />
+                      </div>
+
+                      <div className='addInputBox'>
+                        <span>Size:</span>
+                        <input type='text' name='size' placeholder='Size' 
+                          value={productVariants[index].size} onChange={(e) => { handleVariantChange(e.target.value, 'size', index) }} />
+                      </div>
+
+                      <div className='addInputBox'>
+                        <span>UOM</span>
+                        <input type='text' name='uom' placeholder='Unit of Measurement' 
+                          value={productVariants[index].uom} onChange={(e) => { handleVariantChange(e.target.value, 'uom', index) }} />
+                      </div>
+
+                      <div className='addInputBox'>
+                        <span>Price:</span>
+                        <input required={true} type='number' name='price' placeholder='Price' 
+                          value={productVariants[index].price} onChange={(e) => { handleVariantChange(e.target.value, 'price', index) }} />
+                      </div>
+
+                      <div className='addInputBox'>
+                        <span>Packing:</span>
+                        <input type='number' name='packingUnit' placeholder='Packing Unit'
+                          value={productVariants[index].packingUnit} onChange={(e) => { handleVariantChange(e.target.value, 'packingUnit', index) }} />
+                      </div>
+
+                      <div className='addInputBox'>
+                        <span>Reward</span>
+                        <input type='number' name='rewardPoint' placeholder='Reward Point' 
+                          value={productVariants[index].rewardPoint} onChange={(e) => { handleVariantChange(e.target.value, 'rewardPoint', index) }} />
+                      </div>
+                    </div>
+
+                    <div className='button_div'>
+                      <button className='delete_icon'><MdDelete className='AddvaDelete' onClick={(e) => { handleDeleteVariant(index) }} />
+                      </button>
+                    </div>
+                  </div>
+
+
+                </div>
+              )
+            })}
+            {/* ______________________________________________________+****************new change*****************************************--------
+            ----------- */}
           </div>
           <button className='savebtn'>Save</button>
+
         </form>
       </div>
 

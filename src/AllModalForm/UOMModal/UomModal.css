@@ -1,0 +1,75 @@
+.uommodal {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    margin-top: 20px;
+    height: 30%;
+}
+
+.inputuom {
+    padding: 10px;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    margin-left: 25%;
+}
+
+.inputuom span {
+    font-weight: 500;
+}
+
+.inputuom input {
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 10px;
+    width: 80%;
+    height: 50%;
+    outline: none;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.oumbtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.uomsavebtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    margin-top: 20px;
+    margin-left: 5%;
+    background: rgb(144, 155, 237);
+    color: white;
+    padding: 15px;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    margin-top: 15px;
+    cursor: pointer;
+
+}
+
+.modaldeletebtn{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 10px;
+    margin-top: 5px;
+    
+    
+}
+
+.deletebtn{
+    background-color: white;
+    border-radius: 30%;
+    font-size: 40px;
+    color: red;
+    width: 90px;
+}

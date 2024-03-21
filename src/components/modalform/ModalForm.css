@@ -170,5 +170,63 @@ span {
     cursor: pointer;
 }
 
+.addInput{
+    background-color: white;
+    margin-top: 30px;
+    padding: 10px;
+    align-items: center;
+    border-radius: 20px;
+    
+}
+
+.input_div{
+    flex: 2;
+}
 
 
+ .addInputBox input{
+    display: block;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 10px;
+    width: 80%;
+    height: 40%;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: whitesmoke;
+}
+
+.addInputBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.button_div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.delete_icon{
+    background: rgb(144, 155, 237);
+    color: white;
+    padding: 10px;
+    font-weight: 900;
+    font-size: 30px;
+    border: none;
+    border-radius: 10px;
+     height: 340px;
+}
+
+
+.AddvaDelete{
+    cursor: pointer;
+}
+
+.AddvaDelete:hover{
+    color: red;
+}

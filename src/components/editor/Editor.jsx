@@ -1,50 +1,42 @@
-import React from 'react'
+
+import { useState} from "react";
+import { Form, useLoaderData, useLocation } from "react-router-dom";
 import './Editor.css'
-import {useEffect} from 'react';
-
-import {LexicalComposer} from '@lexical/react/LexicalComposer';
-import {PlainTextPlugin} from '@lexical/react/LexicalPlainTextPlugin';
-import {ContentEditable} from '@lexical/react/LexicalContentEditable';
-import {HistoryPlugin} from '@lexical/react/LexicalHistoryPlugin';
-import {useLexicalComposerContext} from '@lexical/react/LexicalComposerContext';
-import LexicalErrorBoundary from '@lexical/react/LexicalErrorBoundary';
-
-const theme = {
-}
-
-function MyCustomAutoFocusPlugin() {
-  const [editor] = useLexicalComposerContext();
-
-  useEffect(() => {
-
-    editor.focus();
-  }, [editor]);
-
-  return null;
-}
-
-function onError(error) {
-    console.error(error);
-  }
-
-
+import ReactQuill from "react-quill";
+import 'react-quill/dist/quill.snow.css';
 const Editor = () => {
-    const initialConfig = {
-        namespace: 'MyEditor',
-        theme,
-        onError,
-      }
-  return (
-    <LexicalComposer initialConfig={initialConfig}>
-    <PlainTextPlugin
-      contentEditable={<ContentEditable />}
-      placeholder={<div>Enter some text...</div>}
-      ErrorBoundary={LexicalErrorBoundary}
-    />
-    <HistoryPlugin />
-    <MyCustomAutoFocusPlugin />
-  </LexicalComposer>
-  )
-}
+  let isEditMode = false;
+  let productData = null;
+  const location = useLocation();
+  if (location.state?.productData) {
+    isEditMode = true;
+    productData = location.state.productData;
+  }
+  const [productDescription, setProductDescription] = useState(isEditMode ? productData?.description : '');
+  const clearForm = () => {
+    setProductDescription('');
+  }
+    if (isEditMode) {
+      let data = new FormData();
+      productDescription !== '' && data.set("description", productDescription); 
+    } else {
+      let data = new FormData();
+      productDescription !== '' && data.set("description", productDescription);
+    }
 
-export default Editor
+  return (
+    <>
+      <label >
+        <span style={{marginTop:'20px'}}>Description</span>
+      </label>
+      <div style={{marginTop:'20px'}}>
+        <ReactQuill theme="snow" value={productDescription} onChange={setProductDescription} />
+      </div>
+    </>
+  );
+}
+export default Editor;
+
+
+
+

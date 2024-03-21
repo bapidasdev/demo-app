@@ -1,83 +1,65 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 
-import {  FaLock, FaUser } from "react-icons/fa";
-import { MdMessage, MdDashboard } from "react-icons/md";
-import { BiAnalyse } from "react-icons/bi";
-import { IoSettings } from "react-icons/io5";
+import {  FaLock } from "react-icons/fa";
+
 import { TbReportSearch } from "react-icons/tb";
-import { FaSuitcaseRolling, FaAnglesRight } from "react-icons/fa6";
-import { TbLogout2 } from "react-icons/tb";
-import { CgLogIn } from "react-icons/cg";
+import {  FaAnglesRight } from "react-icons/fa6";
 import { FaAngleDoubleLeft } from "react-icons/fa";
+import { MdAdUnits } from "react-icons/md";
+
+import { RiFontSize2 } from "react-icons/ri";
+import { MdCategory } from "react-icons/md";
+import { FaRegListAlt } from "react-icons/fa";
+import { TbMenuDeep } from "react-icons/tb";
+import { MdHardware } from "react-icons/md";
 
 import { NavLink } from 'react-router-dom'
 import './Sidebar.css'
 import logo from '../../assets/logo2.png'
 
 
+
 const routes = [
     {
         path: "/",
-        name: "Dashboard",
-        icon: <MdDashboard />,
+        name: "Product Manager",
+        icon: <MdHardware />,
     },
     {
-        path: "/clientLiabilities",
-        name: "client Liabilities",
-        icon: <FaUser />,
+        path: "/productList",
+        name: "Product List",
+        icon: <FaRegListAlt />,
     },
     {
-        path: "/invoicingReceiption",
-        name: "invoicing Receiption",
-        icon: <MdMessage />,
+        path: "/category",
+        name: "Category",
+        icon: <MdCategory />,
     },
     {
-        path: "/listManagement",
-        name: "list Management",
-        icon: <BiAnalyse />,
+        path: "/subCategory",
+        name: "SubCategory",
+        icon: <TbMenuDeep />,
     },
     {
-        path: "/reports",
-        name: "reports",
+        path: "/brand",
+        name: "Brand",
         icon: <TbReportSearch />,
     },
     {
-        path: "/ruleSet",
-        name: "ruleSet ",
-        icon: <FaUser />,
+        path: "/size",
+        name: "Size ",
+        icon: <RiFontSize2 /> ,
     },
     {
-        path: "/ruleSetGroup",
-        name: "ruleSetGroup",
+        path: "/colour",
+        name: "Colour",
         icon: <FaLock />,
     },
     {
-        path: "/settings",
-        name: "settings",
-        icon: <IoSettings />,
-        subRoutes: [
-            {
-                path: "/settings/profile",
-                name: "profile",
-                icon: <FaUser />,
-            },
-            {
-                path: "/settings/login",
-                name: "login",
-                icon: <CgLogIn />,
-            },
-            {
-                path: "/settings/logout",
-                name: "logout",
-                icon: <TbLogout2 />,
-            },
-        ]
-    },
-    {
-        path: "/caseManagement",
-        name: "case Management",
-        icon: <FaSuitcaseRolling />,
+        path: "/unitOfMeasure",
+        name: "Unit of Measure",
+        icon: <MdAdUnits />,  
     },
 ]
 

@@ -1,18 +1,20 @@
 import React from 'react';
 import './App.css';
 import {  BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Dashboard from './pages/Dashboard.jsx';
-import ClientLiabilities from './pages/ClientLiabilities.jsx'
-import InvoicingReceiption from './pages/InvoicingReceiption.jsx'
-import ListManagement from './pages/ListManagement.jsx'
-import Reports from './pages/Reports.jsx'
-import RuleSet from './pages/RuleSet.jsx'
-import RuleSetGroup from './pages/RuleSetGroup.jsx'
-import Settings from './pages/Settings.jsx'
-import CaseManagement from './pages/CaseManagement.jsx'
+
+
+
 
 
 import Sidebar from './components/sidebar/Sidebar.jsx';
+import ProductManager from './pages/ProductManager.jsx';
+import ProductList from './pages/ProductList.jsx';
+import Category from './pages/Category.jsx';
+import SubCategory from './pages/SubCategory.jsx';
+import Brand from './pages/Brand.jsx';
+import Size from './pages/Size.jsx';
+import Colour from './pages/Colour.jsx';
+import UnitOfMeasure from './pages/UnitOfMeasure.jsx';
 
 
 
@@ -21,15 +23,15 @@ function App() {
     <Router>
       <Sidebar>
       <Routes>
-      <Route path='/' element={<Dashboard />} />
-      <Route path='/clientLiabilities' element={<ClientLiabilities />} />
-      <Route path='/invoicingReceiption' element={<InvoicingReceiption />} />
-      <Route path='/listManagement' element={<ListManagement />} />
-      <Route path='/reports' element={<Reports />} />
-      <Route path='/ruleSet' element={<RuleSet />} />
-      <Route path='/ruleSetGroup' element={<RuleSetGroup />} />
-      <Route path='/settings' element={<Settings />} />
-      <Route path='/caseManagement' element={<CaseManagement />} />
+      <Route path='/' element={<ProductManager />} />
+      <Route path='/productList' element={<ProductList />} />
+      <Route path='/category' element={<Category />} />
+      <Route path='/subCategory' element={<SubCategory />} />
+      <Route path='/brand' element={<Brand />} />
+      <Route path='/size' element={<Size />} />
+      <Route path='/colour' element={<Colour />} />
+      <Route path='/unitOfMeasure' element={<UnitOfMeasure />} />
+      
       </Routes>
       </Sidebar>
     </Router>
