@@ -18,7 +18,7 @@ const ColourModal = ({ closeColourModal }) => {
 
       <div className='inputuom'>
         <span>Colour Name:</span>
-        <input type="text" placeholder='Colour Name' />
+        <input type="text" placeholder='Colour Name' style={{width:'350px'}} />
       </div>
       <div className='drag_drop_upload'>
         <Drag_Drop/>

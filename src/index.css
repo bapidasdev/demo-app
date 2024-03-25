@@ -33,39 +33,7 @@ code {
 
  
 
-@media screen and (max-width:1437px) {
-  .nav{
-    display: none;
-  }
-}
 
 
-.nav_container{
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
 
-}
 
-.nav_container a{
-  margin-right: 20px;
-}
-
-.nav_container p{
-  text-transform: uppercase;
-  font-weight: 500;
-  color: white;
-  margin-right: 20px;
-}
-
-.icon_container{
-background-color: white;
-border-radius: 50%;
-margin-right: 20px;
-padding: 8px;
-}
-
-.icon_container i{
-  font-size: 25px;
-  border-radius: 50%;
-}

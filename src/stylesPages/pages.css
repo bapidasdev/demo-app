@@ -1,36 +1,44 @@
-.list_main_container{
+.list_main_container {
     margin-top: 25px;
     position: relative;
     z-index: 0;
-    
-
-    
 }
 
-.list_header{
+.list_header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     height: 60px;
     background-color: white;
     width: 100%;
+    justify-content: space-between;
     padding: 5px;
+
+
+
+
+
 }
 
-@media screen and (max-width:1438px) {
+@media screen and (max-width:1440px) {
 
-    .list_header{
-        
-    }
-    
+    /* .list_header{
+        display: flex;
+        align-items: center;
+        height: 60px;
+        background-color: white;
+        width: 100%;
+        justify-content: space-between;
+        padding: 5px;
+    } */
+
 }
 
-.list_header h1{
+.list_header h1 {
     font-weight: 500;
     margin-left: 10px;
 }
 
-.list_header button{
+.list_header button {
     background: rgb(144, 155, 237);
     color: white;
     padding: 15px;
@@ -42,11 +50,11 @@
 }
 
 
-.input_container{
+.input_container {
     display: flex;
     align-items: center;
     height: 45px;
-     background-color: whitesmoke; 
+    background-color: whitesmoke;
     width: 100%;
     justify-content: space-between;
     padding: 5px;
@@ -54,7 +62,8 @@
     border-radius: 5px;
 }
 
-.input_container input{
+.input_container input {
+    display: flex;
     border: none;
     outline: none;
     border-radius: 5px;
@@ -63,7 +72,7 @@
     color: rgb(144, 155, 237);
 }
 
-.input_container i{
+.input_container i {
     background: rgb(144, 155, 237);
     padding: 10px;
     border-radius: 5px;

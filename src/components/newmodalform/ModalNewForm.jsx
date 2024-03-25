@@ -17,6 +17,12 @@ const uom = [
 ]
 
 const ModalNewForm = ({ closeNewModal }) => {
+
+
+
+ 
+
+
   return (
 
     <div className='main_container'>

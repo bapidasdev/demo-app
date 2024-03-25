@@ -17,7 +17,7 @@ const BrandModal = ({closeBrandModal}) => {
 
     <div className='inputuom'>
       <span>Brand Name:</span>
-      <input type="text" placeholder='Brand Name' />
+      <input type="text" placeholder='Brand Name' style={{width:'350px'}}/>
     </div>
     <div className='drag_drop_upload'>
       

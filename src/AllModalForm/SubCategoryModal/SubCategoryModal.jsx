@@ -21,8 +21,8 @@ const SubCategoryModal = ({ closeSubCategoryModal }) => {
       </div>
 
       <div className='inputuom'>
-        <span>Colour Name:</span>
-        <input type="text" placeholder='Colour Name' />
+        <span>Sub Category</span>
+        <input type="text" placeholder='Sub Category Name' style={{width:'350px'}}/>
       </div>
       <div className='drag_drop_upload'>
         <Drag_Drop />

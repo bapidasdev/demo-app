@@ -12,7 +12,7 @@ const Navbar = () => {
         <>
             <motion.div
                 animate={{
-                    width: isOpen ? "1320px" : "1800px",
+                    width: isOpen ? "1320px" : "90px",
                     transition: {
                         duration: 0.5,
                         type: "spring",

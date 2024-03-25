@@ -1,5 +1,7 @@
 .main-container {
     display: flex;
+    /* ----------- */
+    position: fixed;
 }
 
 .sidebar {
@@ -7,6 +9,7 @@
     color: white;
     height: 100vh;
     overflow-y: auto;
+    
 }
 
 .top_section {

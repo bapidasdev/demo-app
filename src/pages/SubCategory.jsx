@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import Navbar from '../components/navbar/Navbar'
 
-import '../stylesPages/ListManagement.css'
+import '../stylesPages/pages.css'
 import { FaSearch } from 'react-icons/fa'
 import SubCategoryModal from '../AllModalForm/SubCategoryModal/SubCategoryModal'
 
