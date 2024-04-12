@@ -1,15 +1,16 @@
 import { IconButton, Tooltip } from '@mui/material'
 import React from 'react'
-import { MdDeleteSweep } from "react-icons/md";
+
 import './UomModal.css'
+import { ImCross } from 'react-icons/im';
 
 const UomModal = ({ closeUomModal }) => {
   return (
-    <div className='uommodal'>
+    <div className='uommodal' style={{position:'absolute', top:'20%', left:'5%', width:'40%', height:'30%'}}>
       <div className='modaldeletebtn'>
         <Tooltip title="Delete">
           <IconButton>
-            <MdDeleteSweep className='deletebtn' onClick={() => closeUomModal(false)} />
+            <ImCross className='deletebtn' onClick={() => closeUomModal(false)} />
           </IconButton>
         </Tooltip>
       </div>

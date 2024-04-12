@@ -1,4 +1,4 @@
-.colourdelete{
+.colourdelete {
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -6,7 +6,7 @@
     margin-top: 5px;
 }
 
-.colormodal{
+.colormodal {
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -16,7 +16,7 @@
     height: 100%;
 }
 
-.drag_drop_upload{
+.drag_drop_upload {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,7 +24,7 @@
     margin-left: 5%;
 }
 
-.colourbtn{
+.colourbtn {
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -32,11 +32,13 @@
     padding: 10px;
 }
 
-.coloursavebtn{
+
+
+.coloursavebtn {
     background: rgb(144, 155, 237);
     color: white;
     padding: 10px;
     border-radius: 10px;
-   width: 10%;
-   border: none;
+    width: 10%;
+    border: none;
 }

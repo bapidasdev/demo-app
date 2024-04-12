@@ -2,6 +2,7 @@ import { Autocomplete, IconButton, TextField, Tooltip } from '@mui/material'
 import React from 'react'
 import { MdDeleteSweep } from 'react-icons/md'
 import Drag_Drop from '../../components/drag_drop/Drag__Drop'
+import { ImCross } from 'react-icons/im'
 
 const category = [
   { label: 'Door Handle (test)' },
@@ -10,19 +11,19 @@ const category = [
 
 const SubCategoryModal = ({ closeSubCategoryModal }) => {
   return (
-    <div className='colormodal'>
+    <div className='colormodal' style={{position:'absolute', top:'20%', left:'25%', width:'50%', height:'70%'}}>
 
       <div className='colourdelete'>
         <Tooltip title="Delete">
           <IconButton>
-            <MdDeleteSweep className='deletebtn' onClick={() => closeSubCategoryModal(false)} />
+            <ImCross className='deletebtn' onClick={() => closeSubCategoryModal(false)} />
           </IconButton>
         </Tooltip>
       </div>
 
       <div className='inputuom'>
         <span>Sub Category</span>
-        <input type="text" placeholder='Sub Category Name' style={{width:'350px'}}/>
+        <input type="text" placeholder='Sub Category Name' style={{width:'400px'}}/>
       </div>
       <div className='drag_drop_upload'>
         <Drag_Drop />

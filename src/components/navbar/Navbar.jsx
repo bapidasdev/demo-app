@@ -21,7 +21,7 @@ const Navbar = () => {
                 }}
                 className='nav'>
                 <div className='nav_container'>
-                    <a href="#settings">SERVICENOW</a>
+                    <a href="#unitOfMeasure">SERVICENOW</a>
                     <p>Das, Bapi</p>
                     <div className='icon_container'>
                         <i><FaUser /></i>

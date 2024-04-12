@@ -9,6 +9,7 @@ import Drag__Drop2 from '../drag_drop/Drag__Drop2';
 // import ModalNewForm from '../newmodalform/ModalNewForm';
 
 import { MdDelete } from "react-icons/md";
+import { ImCross } from 'react-icons/im';
 
 
 const ModalForm = ({ closeModal }) => {
@@ -25,6 +26,7 @@ const ModalForm = ({ closeModal }) => {
 
   useEffect(() => {
     fetch('https://pvrd-backend.vercel.app/api/v1/categories/')
+    
       .then((res) => {
         return res.json();
       })
@@ -82,7 +84,7 @@ const ModalForm = ({ closeModal }) => {
   }, []);
 
 
-  const [openNewModal, setOpenNewModal] = useState(false)
+  // const [openNewModal, setOpenNewModal] = useState(false)
 
 
 
@@ -121,6 +123,7 @@ const ModalForm = ({ closeModal }) => {
     });
     setProductVariants(tempProductVariants);
   }
+  
   // _________________________________________________new chamge______+*********************************************************-------------------
   return (
     
@@ -136,7 +139,6 @@ const ModalForm = ({ closeModal }) => {
             <div className='category__brand'>
               <div>
                 <span>Product Category</span>
-
               </div>
               <div>
 
@@ -153,7 +155,6 @@ const ModalForm = ({ closeModal }) => {
                   {category.map((item, index) => (<MenuItem key={index} value={item.value}>{item.name}</MenuItem>))}
                   </Select>
                 </FormControl>
-
               </div>
 
               <div>
@@ -356,7 +357,7 @@ const ModalForm = ({ closeModal }) => {
         <div className='cencel_btn'>
           <Tooltip title="Delete">
             <IconButton>
-              <MdDeleteSweep onClick={() => closeModal(false)} />
+              <ImCross onClick={() => closeModal(false)} />
             </IconButton>
           </Tooltip>
         </div>

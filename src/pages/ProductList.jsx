@@ -3,6 +3,8 @@ import Navbar from '../components/navbar/Navbar'
 import { FaSearch } from 'react-icons/fa'
 import ProductListModal from '../AllModalForm/ProductListModal/ProductListModal'
 
+
+
 const ProductList = () => {
   const[openProductListModal, setOpenProductListModal]= useState(false)
   return (
@@ -21,6 +23,12 @@ const ProductList = () => {
           <i><FaSearch /></i>
         </div>
       </div>
+
+
+
+
+
+      
       {openProductListModal && <ProductListModal closeopenProductListModal={setOpenProductListModal}/>}
     </>
 

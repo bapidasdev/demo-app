@@ -1,14 +1,15 @@
 import { IconButton, Tooltip } from '@mui/material'
 import React from 'react'
+import { ImCross } from 'react-icons/im'
 import { MdDeleteSweep } from 'react-icons/md'
 
 const SizeModal = ({closeSizeModal}) => {
   return (
-    <div className='uommodal'>
+    <div className='uommodal' style={{position:'absolute', top:'20%', left:'5%', width:'40%', height:'30%'}}>
       <div className='modaldeletebtn'>
         <Tooltip title="Delete">
           <IconButton>
-            <MdDeleteSweep className='deletebtn' onClick={() => closeSizeModal(false)} />
+            <ImCross className='deletebtn' onClick={() => closeSizeModal(false)} />
           </IconButton>
         </Tooltip>
       </div>
