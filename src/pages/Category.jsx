@@ -11,6 +11,11 @@ import { MdDelete } from 'react-icons/md';
 const Category = () => {
   const [openCategoryModal, setOpenCategoryModal] = useState(false)
   const [categoryyy, setCategoryyy] = useState([]);
+
+  const openEditMode = ()=>{
+    setOpenCategoryModal(true)
+  }
+
   const columns = [
     { field: 'id', headerName: 'ID', width: 200 },
     { field: 'name', headerName: ' Name', width: 200 },
@@ -35,10 +40,8 @@ const Category = () => {
       renderCell: (cellValue) => {
         return (
           <FaEdit style={{fontSize:'25px', marginTop:'10px', cursor:'pointer'}}
-          onClick={console.log(cellValue)}
-           //onClick={() => { setOpenCategoryModal(true) }}
+           onClick={() => { openEditMode(); console.log(cellValue.id.row) }}
            />
-          
         )
       }
     },

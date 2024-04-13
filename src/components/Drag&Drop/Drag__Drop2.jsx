@@ -37,7 +37,7 @@ const Drag_Drop = () => {
         <input ref={productGalleryImageRef} onChange={e => handleProductGalleryImage(e)} type='file' name='productGallaryImage'
           multiple hidden className='input_file gallery_inputtt' />
 
-        {/* < IoMdCloudUpload color='rgb(144, 155, 237)' size={60} /> */}
+        
         <div style={{ display: 'flex', flexWrap: 'wrap', overflow: 'scroll', marginLeft: '10px', columnGap: '10px', rowGap: '10px' }}>
           {productGalleryImagesURL && (productGalleryImagesURL.map(image => {
             return (
