@@ -5,8 +5,9 @@
 }
 
 main {
-  padding: 10px;
+  
 }
+
 .title {
   font-size: 3rem;
   display: grid;
@@ -19,11 +20,6 @@ main {
 .active {
   background: rgb(45, 51, 89);
 }
-
-
-
-
-
 
 .menu {
   display: flex;

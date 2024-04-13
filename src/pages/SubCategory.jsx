@@ -5,7 +5,6 @@ import '../stylesPages/pages.css'
 import { FaSearch } from 'react-icons/fa'
 import SubCategoryModal from '../AllModalForm/SubCategoryModal/SubCategoryModal'
 
-
 const SubCategory = () => {
 
 const [opneSubCategoryModal, setOpenSubCategoryModal] =useState(false)

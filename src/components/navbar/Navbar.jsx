@@ -3,7 +3,6 @@ import {  FaUser } from 'react-icons/fa'
  import { motion } from 'framer-motion'
  import './Navbar.css'
 
-
 const Navbar = () => {
 
      const [isOpen, setIsOpen] = useState(true);
@@ -12,7 +11,7 @@ const Navbar = () => {
         <>
             <motion.div
                 animate={{
-                    width: isOpen ? "1320px" : "90px",
+                    width: isOpen ? "100%" : "90px",
                     transition: {
                         duration: 0.5,
                         type: "spring",

@@ -8,7 +8,7 @@ const UomModal = ({ closeUomModal }) => {
   return (
     <div className='uommodal' style={{position:'absolute', top:'20%', left:'5%', width:'40%', height:'30%'}}>
       <div className='modaldeletebtn'>
-        <Tooltip title="Delete">
+        <Tooltip title="Delete" className='modaldeletebtn'>
           <IconButton>
             <ImCross className='deletebtn' onClick={() => closeUomModal(false)} />
           </IconButton>

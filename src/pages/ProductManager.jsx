@@ -3,8 +3,7 @@ import Navbar from '../components/navbar/Navbar'
 
 import '../stylesPages/pages.css'
 import { FaSearch } from 'react-icons/fa'
-import ModalForm from '../components/modalform/ModalForm'
-
+import ModalForm from '../AllModalForm/ProductManagerModal/ModalForm'
 const ProductManager = () => {
   const [openModal, setOpenModal] = useState(false)
   return (

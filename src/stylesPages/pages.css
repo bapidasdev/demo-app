@@ -12,26 +12,9 @@
     width: 100%;
     justify-content: space-between;
     padding: 5px;
-
-
-
-
-
 }
 
-@media screen and (max-width:1440px) {
 
-    /* .list_header{
-        display: flex;
-        align-items: center;
-        height: 60px;
-        background-color: white;
-        width: 100%;
-        justify-content: space-between;
-        padding: 5px;
-    } */
-
-}
 
 .list_header h1 {
     font-weight: 500;

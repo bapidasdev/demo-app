@@ -56,26 +56,17 @@
     border-radius: 10px;
     margin-top: 15px;
     cursor: pointer;
-
 }
 
 .modaldeletebtn{
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    margin-right: 10px;
-  
-
-    
-    
-    
+    margin-right: 10px; 
 }
 
 .deletebtn{
-    background-color: white;
-    border-radius: 30%;
+    color: rgb(144, 155, 237);
+    border-radius: 10%;
     font-size: 30px;
-    color: black;
-    width: 90px;
-    margin-top: 5px;
 }

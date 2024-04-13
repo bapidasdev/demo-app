@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import './ModalForm.css'
-import { MdDeleteSweep } from "react-icons/md";
+
 import { Autocomplete, FormControl, IconButton, InputLabel, MenuItem, Select, TextField, Tooltip } from '@mui/material';
 
-import Editor from '../editor/Editor';
-import Drag_Drop from '../drag_drop/Drag__Drop';
-import Drag__Drop2 from '../drag_drop/Drag__Drop2';
+import Editor from '../../components/Description/Editor';
+import Drag_Drop from '../../components/Drag&Drop/Drag__Drop';
+import Drag__Drop2 from '../../components/Drag&Drop/Drag__Drop2';
 // import ModalNewForm from '../newmodalform/ModalNewForm';
 
 import { MdDelete } from "react-icons/md";

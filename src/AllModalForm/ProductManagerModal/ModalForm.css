@@ -91,7 +91,7 @@ span {
     position: absolute;
     left: 89%;
     top: 12%;
-    background-color: red;
+    background-color: rgb(144, 155, 237);
     padding: 10px;
     border-radius: 50%;
     color: white;
@@ -100,7 +100,6 @@ span {
 }
 
 .cencel_btn button {
-    background-color: red;
     color: white;
     padding: 10px;
     font-weight: 900;

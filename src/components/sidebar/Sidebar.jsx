@@ -74,7 +74,7 @@ const Sidebar = ({ children }) => {
         <div className='main-container'>
             <motion.div
                 animate={{
-                    width: isOpen ? "200px" : "90px",
+                    // width: isOpen ? "200px" : "90px",
                     transition: {
                         duration: 0.5,
                         type: "spring",
@@ -82,11 +82,12 @@ const Sidebar = ({ children }) => {
                     }
                 }}
                 className='sidebar'
+                style={{flex: isOpen ? 1 : 0.3}}
             >
                 <div className='top_section'>
                     {isOpen && <img src={logo} alt="logo" id='img' />}
                     <div className="bars">
-                        {isOpen ? <FaAngleDoubleLeft onClick={toggle}  /> : <FaAnglesRight onClick={toggle}/>}
+                        {isOpen ? <FaAngleDoubleLeft className='leftArrow' onClick={toggle}  /> : <FaAnglesRight  onClick={toggle}/>}
                     </div>
                 </div>
                 <hr />
@@ -106,7 +107,7 @@ const Sidebar = ({ children }) => {
                     })}
                 </section>
             </motion.div>
-            <main>{children}</main>
+            <main style={{flex: 4}}>{children}</main>
         </div>
     )
 }
