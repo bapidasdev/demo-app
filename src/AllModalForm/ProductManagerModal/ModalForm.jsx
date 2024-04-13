@@ -274,9 +274,7 @@ const ModalForm = ({ closeModal }) => {
 
 
             <div className='newModalOpen'>
-              {/* <span>Product variants:</span>
-            <button type='button' onClick={() => { setOpenNewModal(true) }} className='newModalOpenBtn'>ADD variant</button>
-            {openNewModal && <ModalNewForm closeNewModal={setOpenNewModal} />} */}
+            
 
 
               {/* _______________________________________________________+*********new change************************************************------------------- */}

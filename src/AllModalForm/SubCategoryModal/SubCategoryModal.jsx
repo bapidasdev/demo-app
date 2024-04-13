@@ -1,7 +1,7 @@
 import { Autocomplete, IconButton, TextField, Tooltip } from '@mui/material'
 import React from 'react'
 import { MdDeleteSweep } from 'react-icons/md'
-import Drag_Drop from '../../components/drag_drop/Drag__Drop'
+import Drag_Drop from '../../components/Drag&Drop/Drag__Drop'
 import { ImCross } from 'react-icons/im'
 
 const category = [

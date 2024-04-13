@@ -51,7 +51,9 @@ const Category = () => {
       width: 200,
       renderCell: (cellValue) => {
         return (
-          <MdDelete style={{fontSize:'25px', marginTop:'10px', cursor:'pointer'}} onClick={console.log("delete button click")}/>
+          <MdDelete style={{fontSize:'25px', marginTop:'10px', cursor:'pointer'}} 
+          //onClick={console.log("delete button click")}
+          />
         )
       }
     },

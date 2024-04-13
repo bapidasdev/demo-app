@@ -2,7 +2,7 @@ import { IconButton, Tooltip } from '@mui/material'
 import React from 'react'
 
 import { ImCross } from "react-icons/im";
-import Drag_Drop from '../../components/drag_drop/Drag__Drop'
+import Drag_Drop from '../../components/Drag&Drop/Drag__Drop'
 
 const CategoryModal = ({closeCategoryModal}) => {
   return (
