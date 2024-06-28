@@ -4,6 +4,7 @@ import { Form, useLoaderData, useLocation } from "react-router-dom";
 import './Editor.css'
 import ReactQuill from "react-quill";
 import 'react-quill/dist/quill.snow.css';
+
 const Editor = () => {
   let isEditMode = false;
   let productData = null;

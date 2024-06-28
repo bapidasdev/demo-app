@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import './ModalForm.css'
 
-import { Autocomplete, FormControl, IconButton, InputLabel, MenuItem, Select, TextField, Tooltip } from '@mui/material';
+import { FormControl, IconButton, InputLabel, MenuItem, Select, Tooltip } from '@mui/material';
 
-import Editor from '../../components/Description/Editor';
+import Editor from '../../components/description/Editor';
 import Drag_Drop from '../../components/Drag&Drop/Drag__Drop';
-import Drag__Drop2 from '../../components/Drag&Drop/Drag__Drop2';
-// import ModalNewForm from '../newmodalform/ModalNewForm';
+import Drag__Drop2 from '../../components/Drag&Drop/MultiFileUpload';
+
 
 import { MdDelete } from "react-icons/md";
 import { ImCross } from 'react-icons/im';
@@ -20,90 +20,47 @@ const ModalForm = ({ closeModal }) => {
   const [brand, setbrand] = useState([]);
   const [colour, setColour] = useState([]);
   const [size, setSize] = useState([]);
-  const [uom, setUom] = useState([])
-  
-  // -----------category api---------------------------------------
+  const [uom, setUom] = useState([]);
+  const [productVariants, setProductVariants] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [hasError, setHasError] = useState(false);
+
+
+  const getData = async () => {
+      try {
+        setIsLoading(true);
+        setHasError(false);
+        const res = await Promise.all([
+          fetch("https://pvrd-backend.vercel.app/api/v1/categories/"),
+          fetch("https://pvrd-backend.vercel.app/api/v1/brands/"),
+          fetch("https://pvrd-backend.vercel.app/api/v1/colours/"),
+          fetch("https://pvrd-backend.vercel.app/api/v1/sizes/"),
+          fetch("https://pvrd-backend.vercel.app/api/v1/uoms/")
+        ]);
+        const data = await Promise.all(res.map(res => res.json()))
+        setIsLoading(false);
+        setHasError(false)
+        console.log("Data: ",data);
+        setCategory(data[0]);
+        setbrand(data[1]);
+        setColour(data[2]);
+        setSize(data[3]);
+        setUom(data[4]);
+      } catch {
+        setIsLoading(false);
+        setHasError(true);
+        console.log('coming inside catch block')
+        //throw Error("Promise failed");
+      }
+
+  }
 
   useEffect(() => {
-    fetch('https://pvrd-backend.vercel.app/api/v1/categories/')
-    
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        // console.log(data);
-        setCategory(data);
-      });
-  }, []);
-  // -----------brand api---------------------------------------
- 
-  useEffect(() => {
-    fetch('https://pvrd-backend.vercel.app/api/v1/brands/')
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        // console.log(data);
-        setbrand(data);
-      });
-  }, []);
-  // -----------colour api---------------------------------------
-  
-  useEffect(() => {
-    fetch('https://pvrd-backend.vercel.app/api/v1/colours/')
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        // console.log(data);
-        setColour(data);
-      });
-  }, []);
-  // -----------size api---------------------------------------
+    getData();
+  }, [])
 
-  useEffect(() => {
-    fetch('https://pvrd-backend.vercel.app/api/v1/sizes/')
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        // console.log(data)
-        setSize(data)
-      })
-  }, []);
-  // -----------UOM api---------------------------------------
-  useEffect(() => {
-    fetch('https://pvrd-backend.vercel.app/api/v1/uoms/')
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        // console.log(data)
-        setUom(data)
-      })
-  }, []);
-
-
-  // const [openNewModal, setOpenNewModal] = useState(false)
-
-
-
-  // const [selectLabel, setSelectLabel] = useState([])
-
-  // const handleValue=(e)=>{
-  //   const value = e.target.value;
-  //   // setSelectValue(value)
-  //   setSelectValue(
-  //     (selectValue && selectValue.length)===(category.length)?[]:setCategory
-  //   );return;
-
-
-  // }
 
   //_______________________________________new changer________________+*********************************************************-------------------
-
-  const [productVariants, setProductVariants] = useState([]);
-  const [loading, setLoading] = useState(false);
 
   const handleAddVariant = (e) => {
     e.preventDefault();
@@ -123,14 +80,36 @@ const ModalForm = ({ closeModal }) => {
     });
     setProductVariants(tempProductVariants);
   }
-  
+
   // _________________________________________________new chamge______+*********************************************************-------------------
+
+  const getModalStyle = () => {
+    let styles = {overflowY: "scroll"};
+    if(hasError || isLoading) {
+      styles = {...styles,...{display:'flex',justifyContent:'center',alignItems:'center', height:'50vh'}}
+    }
+    return styles;
+  }
   return (
-    
+
     <>
       <div style={{ overflowY: "scroll" }}>
-        <div className="modal_bg" style={{ overflowY: "scroll" }}>
-          <form>
+        <div 
+          className="modal_bg"
+          style={{...getModalStyle()}}
+        >
+          {isLoading && (
+            <div>
+              Loading...
+            </div>
+          )}
+          {hasError && (
+            <div>
+              Something went wrong, Please try again
+            </div>
+          )}
+          {!isLoading && !hasError && (
+            <form>
             <div className="input_name">
               <span>Name: </span>
               <input type="text" name="productName" placeholder="ProductName" className='name_input' />
@@ -152,7 +131,7 @@ const ModalForm = ({ closeModal }) => {
                     label="Category"
                     onChange={(e) => setSelectedCategory(e.target.value)}
                   >
-                  {category.map((item, index) => (<MenuItem key={index} value={item.value}>{item.name}</MenuItem>))}
+                    {category.map((item, index) => (<MenuItem key={index} value={item.value}>{item.name}</MenuItem>))}
                   </Select>
                 </FormControl>
               </div>
@@ -172,9 +151,9 @@ const ModalForm = ({ closeModal }) => {
                     onChange={(e) => setSelectedCategory(e.target.value)}
 
                   >
-                    
+
                     {brand.map((item, index) => (<MenuItem key={index} value={item.value}>{item.name}</MenuItem>))}
-                    
+
                   </Select>
                 </FormControl>
 
@@ -274,13 +253,13 @@ const ModalForm = ({ closeModal }) => {
 
 
             <div className='newModalOpen'>
-            
+
 
 
               {/* _______________________________________________________+*********new change************************************************------------------- */}
               <button
                 type="button"
-                disabled={loading}
+                disabled={isLoading}
                 onClick={(e) => handleAddVariant(e)}
                 className='newModalOpenBtn'
               >Add variant</button>
@@ -346,12 +325,8 @@ const ModalForm = ({ closeModal }) => {
             <button className='savebtn'>Save</button>
 
           </form>
-
-
+          )}
         </div>
-
-
-
         <div className='cencel_btn'>
           <Tooltip title="Delete">
             <IconButton>

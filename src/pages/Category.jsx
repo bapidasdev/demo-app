@@ -3,44 +3,52 @@ import Navbar from '../components/navbar/Navbar'
 import { FaSearch } from 'react-icons/fa'
 import CategoryModal from '../AllModalForm/CategoryModal/CategoryModal'
 import { DataGrid } from '@mui/x-data-grid';
-import { Avatar } from '@mui/material';
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from 'react-icons/md';
 
 
-const Category = () => {
+const Category = (deleteRow) => {
   const [openCategoryModal, setOpenCategoryModal] = useState(false)
   const [categoryyy, setCategoryyy] = useState([]);
 
-  const openEditMode = ()=>{
+ const [rowToEdit,setRowToEdit]=useState(null)
+
+  const handleEditRow = ()=>{
     setOpenCategoryModal(true)
   }
 
+  const handleDelete =(id)=>{
+    console.log(id + "has been delete")
+  }
+  
   const columns = [
-    { field: 'id', headerName: 'ID', width: 200 },
+    { field: 'id', headerName: 'ID', width: 250 },
     { field: 'name', headerName: ' Name', width: 200 },
   
     {
       field: 'image',
       headerName: 'Image',
-      width: 200,
-      renderCell:params=> <Avatar src={params.row.image} style={{marginTop:'5px', backgroundColor:'white'}} />,
+      width: 150,
+      renderCell:params=>{
+      return <img src={params.row.image} alt='img'
+       style={{width:"40px", height:'40px', borderRadius:'50%', marginTop:'5px', objectFit:'cover'}} />},
       sortable: false,
       filterable:false
     },
     {
       field: 'subCategories',
       headerName: 'SubCategories',
-      width: 200,
+      width: 180,
     },
     {
       field: 'edit',
       headerName: 'Edit',
-      width: 200,
+      width: 160,
       renderCell: (cellValue) => {
         return (
           <FaEdit style={{fontSize:'25px', marginTop:'10px', cursor:'pointer'}}
-           onClick={() => { openEditMode(); console.log(cellValue.id.row) }}
+           onClick={() => { handleEditRow();
+             console.log(cellValue) }}
            />
         )
       }
@@ -48,11 +56,12 @@ const Category = () => {
     {
       field: 'delete',
       headerName: 'Delete',
-      width: 200,
+      width: 160,
       renderCell: (cellValue) => {
         return (
           <MdDelete style={{fontSize:'25px', marginTop:'10px', cursor:'pointer'}} 
           //onClick={console.log("delete button click")}
+          onClick={()=>handleDelete(cellValue.row.id)}
           />
         )
       }
@@ -72,6 +81,8 @@ const Category = () => {
   }, []);
 
   console.log(categoryyy)
+
+  
 
   return (
 
@@ -93,10 +104,13 @@ const Category = () => {
       </div>
 
 
-      <div style={{ height: 400, width: '95%', marginTop: '30px', marginLeft:'25px' }}>
-        <DataGrid
+      <div
+       style={{ height: 400, width: '95%', marginTop: '30px', marginLeft:'25px' }}
+       >
+       
+         <DataGrid
           //style={{display:'flex', alignItems:'center', justifyContent:'center'}}
-          rows={categoryyy}
+          rows={categoryyy }
           columns={columns}
           initialState={{
             pagination: {

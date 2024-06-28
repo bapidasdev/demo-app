@@ -40,13 +40,6 @@ const Drag_Drop = () => {
           }} />
         </span>
       </div>}
-
-      
-
-
-      
-
-      
     </div>
   )
 }
