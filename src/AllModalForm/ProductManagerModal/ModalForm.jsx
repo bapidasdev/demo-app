@@ -10,6 +10,7 @@ import Drag__Drop2 from '../../components/Drag&Drop/MultiFileUpload';
 
 import { MdDelete } from "react-icons/md";
 import { ImCross } from 'react-icons/im';
+import Loading from '../../pages/loading/Loading';
 
 
 const ModalForm = ({ closeModal }) => {
@@ -100,7 +101,8 @@ const ModalForm = ({ closeModal }) => {
         >
           {isLoading && (
             <div>
-              Loading...
+              
+              <Loading />
             </div>
           )}
           {hasError && (
@@ -231,7 +233,7 @@ const ModalForm = ({ closeModal }) => {
             </div>
 
             <div className='Reward_Poin_input'>
-              <span>Reward Point</span>
+              <span>Reward Point </span>
               <input type="number" name='ProductPrice' placeholder='Reward Point' className='reward_input' />
             </div>
 
